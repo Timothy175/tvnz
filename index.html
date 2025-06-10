@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIVAN NETWORK - Secure Portal</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIVAN NETWORK - Secure Portal</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <div class="datetime-container">
-        <div id="dateDisplay" class="date-display"></div>
-        <div id="timeDisplay" class="time-display"></div>
+  <div class="datetime-container">
+    <div id="dateDisplay" class="date-display"></div>
+    <div id="timeDisplay" class="time-display"></div>
+  </div>
+
+  <div class="auth-container">
+    <img src="portalLogo_picture@2x.png" alt="TIVAN Secure Portal" class="brand-logo">
+
+    <div class="auth-header">
+      <h1>TIVAN NETWORK</h1>
+      <p>Enterprise Security Portal</p>
     </div>
 
-    <div class="auth-container">
-        <img src="portalLogo_picture@2x.png" alt="TIVAN Secure Portal" class="brand-logo">
-        
-        <div class="auth-header">
-            <h1>TIVAN NETWORK</h1>
-            <p>Enterprise Security Portal</p>
-        </div>
+    <form id="firebaseLoginForm" class="login-form">
+      <div class="input-group">
+        <input type="text" id="username" name="username" placeholder="Username" autocomplete="off" required>
+      </div>
 
-        <form id="loginForm" class="login-form" method="POST" action="/auth">
-            <div class="input-group">
-                <input type="text" id="username" name="username" placeholder="Username" autocomplete="off" required>
-            </div>
-            
-            <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required>
-                <i class="fas fa-eye toggle-password"></i>
-            </div>
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required>
+        <i class="fas fa-eye toggle-password"></i>
+      </div>
 
-            <input type="hidden" id="csrfToken" name="csrfToken" value="">
-            <button type="submit" class="login-btn">Login</button>
-        </form>
+      <input type="hidden" id="csrfToken" name="csrfToken" value="">
+      <button type="submit" class="login-btn">Login</button>
+    </form>
 
-        <div id="statusMessage" class="status-alert"></div>
-        
-        <div class="support-footer">
-            <p>Can't login? Contact your admin</p>
-            <p>For Support, contact <a href="mailto:network@leadrox.my.id">network@leadrox.my.id</a></p>
-        </div>
+    <div id="statusMessage" class="status-alert"></div>
+
+    <div class="support-footer">
+      <p>Can't login? Contact your admin</p>
+      <p>For Support, contact <a href="mailto:network@leadrox.my.id">network@leadrox.my.id</a></p>
     </div>
+  </div>
 
-    <script src="index.js"></script>
+  <!-- Script yang dipanggil dari dalam folder js/ -->
+  <script src="js/index.js"></script>
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/firebase-login.js"></script>
 </body>
 </html>
