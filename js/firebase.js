@@ -6,7 +6,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAl7ljECg3d6Shr6jSCaOZpItT3q5pklnE",
   authDomain: "tivanz.firebaseapp.com",
   projectId: "tivanz",
-  storageBucket: "tivanz.firebasestorage.app",
+  storageBucket: "tivanz.appspot.com",
   messagingSenderId: "975515506264",
   appId: "1:975515506264:web:a7e80ad5b876b7137adc2d",
   measurementId: "G-ZQGKXHH27X"
