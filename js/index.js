@@ -22,8 +22,8 @@ let securityState = {
 };
 
 // DOM Elements
-const loginForm = document.getElementById('loginForm');
-const statusMessage = document.getElementById('statusMessage');
+const loginForm = document.getElementById("firebaseLoginForm");
+const statusMessage = document.getElementById("statusMessage");
 const togglePassword = document.querySelector('.toggle-password');
 const passwordInput = document.getElementById('password');
 const csrfTokenInput = document.getElementById('csrfToken');
@@ -73,12 +73,10 @@ function handleLogin(e) {
     
     if(!checkSecurity()) return;
     
-    // Show loading state
     const submitBtn = loginForm.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
     
-    // TP-Link EAP613 compatible POST request
     fetch(loginForm.action, {
         method: 'POST',
         headers: {
@@ -94,7 +92,7 @@ function handleLogin(e) {
             handleFailedAttempt(data.message || 'Authentication failed');
         }
     })
-    .catch(error => {
+    .catch(() => {
         handleFailedAttempt('Network error. Please try again');
     })
     .finally(() => {
@@ -161,7 +159,7 @@ function handleFailedAttempt(message) {
 function escalateLockout() {
     securityState.lockoutLevel = Math.min(
         securityState.lockoutLevel + 1, 
-        TPLINK_CONFIG.LOCKOUT_STAGES.length - 1
+        TPLINK_CONFIG.LOCKOUT_STERS.length - 1
     );
     
     const { duration, unit } = TPLINK_CONFIG.LOCKOUT_STAGES[securityState.lockoutLevel];
